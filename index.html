@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JOGO PEDRA, PAPEL, TESOURA</title>
+
+
+	<style type="text/css">
+
+		.div {
+
+			height: 400px;
+			width: 400px;
+			background-color: red;
+
+			margin: auto;
+
+			display: flex;
+			flex-direction: row;
+
+		}
+
+
+		.div1 {
+
+			height: auto;
+			width: 50%;
+
+			display: flex;
+			flex-direction: column;
+
+			align-items: center;
+
+		}
+
+
+		.div2{
+
+			width: 85px;
+			height: 85px;
+
+			margin: auto;
+
+			text-align: center;
+			line-height: 85PX;
+
+		}
+
+
+		h1 {
+
+			text-align: center;
+
+		}
+
+
+		body {
+
+			background-color: blueviolet;
+
+		}
+
+
+		input{
+
+			width: 395px;
+			height: 100px;
+			text-align: center;
+			margin-bottom: 8px;
+
+		}
+		
+
+	</style>
+
+
+</head>
+<body>
+
+
+		<h1>PEDRA, PAPEL, TESOURA</h1>
+
+
+		<div style="text-align: center;"> <input id="input"></input> </div>
+
+
+		<div class="div">
+
+		
+			<div class="div1" style="background-color: brown;">
+				
+				<div class="div2" id="player_one_pedra" style=" background-color: blue; ">
+
+					<strong>PEDRA</strong>
+
+				</div>
+
+				<div class="div2" id="player_one_papel" style=" background-color: violet;">
+					
+					<strong>PAPEL</strong>
+
+				</div>
+
+				<div class="div2" id="player_one_tesoura" style=" background-color: orange;">
+					
+					<strong>TESOURA</strong>
+
+				</div>
+
+			</div>
+
+			<div class="div1" style="background-color: pink;">
+				
+				<div class="div2" id="player_two_pedra" style=" background-color: blue; ">
+
+					<strong>PEDRA</strong>
+
+				</div>
+
+				<div class="div2" id="player_two_papel" style=" background-color: violet;">
+					
+					<strong>PAPEL</strong>
+
+				</div>
+
+				<div class="div2" id="player_two_tesoura" style=" background-color: orange;">
+					
+					<strong>TESOURA</strong>
+
+				</div>
+
+			</div>
+
+			
+		</div>
+
+
+
+	<script type="text/javascript">
+
+
+		var jogadaJogador1 = null;
+		var jogadaJogador2 = null;
+ 
+
+
+		function resultado() {
+
+
+			if (jogadaJogador1 == "tesoura" && jogadaJogador2 == "papel") {
+
+
+				var input = document.getElementById('input');
+
+					input.value = "O JOGADOR 1, GANHOU";
+
+
+			};
+
+			if (jogadaJogador1 == "tesoura" && jogadaJogador2 == "tesoura") {
+
+
+				var input = document.getElementById('input');
+
+					input.value = "O JOGO EMPATOU";
+
+
+			};
+
+			if (jogadaJogador1 == "tesoura" && jogadaJogador2 == "pedra") {
+
+
+				var input = document.getElementById('input');
+
+					input.value = "O JOGADOR 2, GANHOU";
+
+
+			};
+
+
+			if (jogadaJogador1 == "pedra" && jogadaJogador2 == "papel") {
+
+
+				var input = document.getElementById('input');
+
+					input.value = "O JOGADOR 2, GANHOU";
+
+
+			};
+
+			if (jogadaJogador1 == "pedra" && jogadaJogador2 == "tesoura") {
+
+
+				var input = document.getElementById('input');
+
+					input.value = "O JOGADOR 1, GANHOU";
+
+
+			};
+
+			if (jogadaJogador1 == "pedra" && jogadaJogador2 == "pedra") {
+
+
+				var input = document.getElementById('input');
+
+					input.value = "O JOGO EMPATOU";
+
+
+			};
+
+
+			if (jogadaJogador1 == "papel" && jogadaJogador2 == "papel") {
+
+
+				var input = document.getElementById('input');
+
+					input.value = "O JOGO EMPATOU";
+
+
+			};
+
+			if (jogadaJogador1 == "papel" && jogadaJogador2 == "tesoura") {
+
+
+				var input = document.getElementById('input');
+
+					input.value = "O JOGADOR 2, GANHOU";
+
+
+			};
+
+			if (jogadaJogador1 == "papel" && jogadaJogador2 == "pedra") {
+
+
+				var input = document.getElementById('input');
+
+					input.value = "O JOGADOR 1, GANHOU";
+
+
+			};
+
+			
+		};
+
+
+		function almentarTamanho(id) {
+			
+			var div_a_almentar = document.getElementById(id);
+
+			div_a_almentar.style.width = '170px';
+			div_a_almentar.style.height = '170px';
+
+			div_a_almentar.style.lineHeight = '170px';
+
+		}
+
+
+		function diminuirTamanho(id) {
+
+			var div_a_diminuir = document.getElementById(id);
+
+			div_a_diminuir.style.width = '85px';
+			div_a_diminuir.style.height = '85px';
+
+			div_a_diminuir.style.lineHeight = '85px';
+
+		}
+
+
+
+		document.addEventListener(
+
+			"keydown",
+
+			function(event) {
+
+				if (event.key === "z") {
+
+					jogadaJogador1 = "pedra";
+
+				}
+
+			}
+
+		);
+
+
+		document.addEventListener(
+
+			"keydown",
+
+			function(event) {
+
+				if (event.key === "x") {
+
+					jogadaJogador1 = "papel";
+
+				}
+
+			}
+
+		);
+
+
+		document.addEventListener(
+
+			"keydown",
+
+			function(event) {
+
+				if (event.key === "c") {
+
+					jogadaJogador1 = "tesoura";
+
+				}
+
+			}
+
+		);
+
+		
+
+		document.addEventListener(
+
+			"keydown",
+
+			function(event) {
+
+				if (event.key === "1") {
+
+					jogadaJogador2 = "pedra";
+
+				}
+
+			}
+
+		);
+
+
+		document.addEventListener(
+
+			"keydown",
+
+			function(event) {
+
+				if (event.key === "2") {
+
+					jogadaJogador2 = "papel";
+
+				}
+
+			}
+
+		);
+
+
+		document.addEventListener(
+
+			"keydown",
+
+			function(event) {
+
+				if (event.key === "3") {
+
+					jogadaJogador2 = "tesoura";
+
+				}
+
+			}
+
+		);
+
+
+
+		document.addEventListener(
+
+			"keyup",
+
+			function(event) {
+
+				if (jogadaJogador2 && jogadaJogador1 != null) {
+
+					almentarTamanho(`player_one_${jogadaJogador1}`);
+					almentarTamanho(`player_two_${jogadaJogador2}`);
+
+					resultado();
+
+
+
+
+
+
+					document.addEventListener(
+
+						"keyup",
+
+						function(event) {
+
+							if (event.key === "r") {
+
+								diminuirTamanho(`player_one_${jogadaJogador1}`);
+								diminuirTamanho(`player_two_${jogadaJogador2}`);
+
+								jogadaJogador2 = null;
+								jogadaJogador1 = null;
+
+							}
+
+						}
+
+					);
+
+				}
+
+			}
+
+		);
+		
+
+	</script>
+
+</body>
+</html>
